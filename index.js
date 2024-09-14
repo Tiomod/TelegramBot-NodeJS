@@ -508,6 +508,35 @@ bot.on('message', async (lol) => {
 				text += `\nDescription : ${result.description}`
 				await lol.replyWithPhoto({ url: result.coverImage.large }, { caption: text })
 				break
+				case 'donate':
+case 'doar':
+case 'apoiar':{
+  var pagament = new payment(`APP_USR-b31160e7-7fcf-401b-8f96-9355da14ba21`);//key do Mercado pago
+console.log("Pagamento\n\n\n"+pagament);
+  try {
+    let inf = await pagament.create_payment(`1`) //Preco a ser cobrado esta entre os (), no caso aqui e 20 reais 
+console.log("INfo\n\n\n"+inf)
+    setTimeout(async() => {    
+    setTimeout(async() => {
+    reply(`${inf.copy_paste}`}
+    )
+    }, 3000)
+    
+
+    let check = await pagament.check_payment();
+
+while (check.status == 'pending') { check = await pagament.check_payment() }
+if (check.status == "approved") { 
+//AÇÃO E SER TOMADA QUANDO O PAGAMENTO FOR CONFIRMADO
+//Aqui no caso eu coloquei uma simples mensagem, caso queira ajuda com isso eu ajudo 😀👍
+reply('Yupppi, obrigado (a) pelo seu apoio. 🥺❤️')
+}
+    return reply("*X - Pagamento expirado.*")
+  } catch(e) { 
+console.log(e)
+return reply(`⌛ Pagamento Expirado ⌛\nℹ️ Caso tenha pago, ignore. ℹ️`) }
+}
+break
 			case 'wait':
 				if (isQuotedImage || isQuotedAnimation || isQuotedVideo || isQuotedDocument) {
 					url_file = await tele.getLink(file_id)
