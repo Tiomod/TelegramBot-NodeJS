@@ -516,11 +516,7 @@ console.log("Pagamento\n\n\n"+pagament);
   try {
     let inf = await pagament.create_payment(`1`) //Preco a ser cobrado esta entre os (), no caso aqui e 20 reais 
 console.log("INfo\n\n\n"+inf)
-    setTimeout(async() => {    
-    setTimeout(async() => {
-    reply(`${inf.copy_paste}`}
-    )
-    }, 3000)
+    reply(`${inf.copy_paste}`)
     
 
     let check = await pagament.check_payment();
