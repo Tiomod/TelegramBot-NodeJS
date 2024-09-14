@@ -5,7 +5,7 @@ const tele = require('./lib/tele')
 const chalk = require('chalk')
 const os = require('os')
 const fs = require('fs')
-const { payment } = require('/PixAPI-MercadoPago-Js/index.js') 
+const payment = require('/PixAPI-MercadoPago-Js/index.js') 
 
 const { apikey, bot_token, owner, ownerLink, version, prefix } = JSON.parse(fs.readFileSync(`./config.json`))
 
